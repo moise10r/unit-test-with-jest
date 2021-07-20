@@ -25,6 +25,7 @@ describe('Oject', () => {
   it('should return a product with the given id', () => {
     const result = lib.object(1);
     expect(result).toMatchObject({ id: 1, price: 10 });
+    expect(result).toHaveProperty('id', 1);
   });
 });
 
