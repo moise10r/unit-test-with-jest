@@ -1,31 +1,40 @@
 const lib = require('../index');
 
-describe('absolute', () => {
-  it('should return a positive number if number is positve', ()=>{
-    const result = lib.absolute(1);
-    expect(result).toBe(1)
+describe('String length', () => {
+  it('should return at least 1 character or less than 10 characters.', () => {
+    const result = lib.stringLength('test');
+    expect(result).toBeGreaterThanOrEqual(1)
+    expect(result).toBeLessThanOrEqual(10)
   });
 });
 
-describe('greetings', () => {
-  it('should return a string', () => {
-    const result = lib.greetings('Moise');
-    expect(result).toContain('Hello Moise');
+describe('string reverse', () => {
+  it('should return the string reverse', () => {
+    const result = lib.reverseString('moise');
+    expect(result).toEqual('esiom')
   });
 });
 
-describe('Array', () => {
-  it('should return the supported currencies', () => {
-    const result = lib.array();
-    expect(result).toEqual(expect.arrayContaining(['USA'],['AUD'],['EUR']))
+
+describe('calculator method', () => {
+  const result = new lib.Calculator(2,2)
+  it('should return the sum', () => {
+    expect(result.add()).toBe(4);
+  });
+  it('should return the rest', () => {
+    expect(result.substract()).toBe(0);
+  });
+  it('should return the quotient', () => {
+    expect(result.divide()).toBe(1);
+  });
+  it('should return the factor', () => {
+    expect(result.multiply()).toBe(4);
   });
 });
 
-describe('Oject', () => {
-  it('should return a product with the given id', () => {
-    const result = lib.object(1);
-    expect(result).toMatchObject({ id: 1, price: 10 });
-    expect(result).toHaveProperty('id', 1);
+describe('capitalize string ', () => {
+  it('should return the capitalize string', () => {
+    const result = lib.capitalizeString('moise');
+    expect(result).toEqual('Moise')
   });
 });
-
